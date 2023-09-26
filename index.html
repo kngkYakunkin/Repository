@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ivan Yakunkin</title>
+</head>
+<body>
+    <style>
+        img{
+            width: 456px;
+            display: none;
+            transition: display .1s;
+            margin: 0 auto;
+        }
+    
+        .container{
+            text-align: center;
+        }
+        .container p, .red{
+            font-size: 22px;
+            transition: color .1s;
+            width: fit-content;
+            margin: 0 auto;
+        }
+        span.red{
+            color:red;
+        }
+        p:hover, p>*:hover{
+            color: white;
+        }
+        .active{
+            display: block;
+        }
+    </style>
+    <div class="container">
+        <div class="profile">
+            <h1>Ivan Yakunkin</h1>
+            <div class="profile__img">
+                <img src="myself.png" alt="Ivan" class="Ivan active">
+                <img src="billy.webp" alt="Bily" class="Billy">
+            </div>
+            <div class="profile__info">
+                <p>My name is <b>Ivan</b>. My surname is <b>Yakunkin</b>. I'm 18 yo. I was born in Kasimov. </p>
+                <p>Someday i've made a complicated decision. I decide to study in <span class="red">Kasimovskiy Neftegazovye college</span>.</p>
+                <p>Right now i'm studying how to work with Git.</p>
+                <p class="s">Bla bla bla</p>
+            </div>
+        </div>
+    </div>
+
+    <script
+    src="https://code.jquery.com/jquery-3.7.1.js"
+    integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+    crossorigin="anonymous"></script>
+
+    <script>
+        function sleep(milliseconds) {
+            const date = Date.now();
+            let currentDate = null;
+            do {
+                currentDate = Date.now();
+            } while (currentDate - date < milliseconds);
+        }
+
+        $('.Ivan').click(function(){
+           
+            $('.Ivan').removeClass('active');
+            $('.Billy').addClass('active');
+            sleep(10);
+        });
+
+        $('.Billy').click(function(){
+            
+            $('.Billy').removeClass('active');
+            $('.Ivan').addClass('active');
+            
+        });
+    </script>
+</body>
+</html>
